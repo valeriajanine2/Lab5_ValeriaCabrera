@@ -27,17 +27,221 @@ public class MainLab extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jd_aPersona = new javax.swing.JDialog();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        tf_nombrePe = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        tf_apellido = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        tf_nacionalidad = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        sp_edad = new javax.swing.JSpinner();
+        jLabel7 = new javax.swing.JLabel();
+        rb_f = new javax.swing.JRadioButton();
+        rb_m = new javax.swing.JRadioButton();
+        jLabel8 = new javax.swing.JLabel();
+        tf_vocacion = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        rb_si = new javax.swing.JRadioButton();
+        rb_no = new javax.swing.JRadioButton();
+        jLabel10 = new javax.swing.JLabel();
+        rb_positivo = new javax.swing.JRadioButton();
+        rb_negativo = new javax.swing.JRadioButton();
+        bt_agregarPer = new javax.swing.JButton();
+        jd_aPais = new javax.swing.JDialog();
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
+        buttonGroup3 = new javax.swing.ButtonGroup();
+        jLabel1 = new javax.swing.JLabel();
+        bt_persona = new javax.swing.JButton();
+        bt_pais = new javax.swing.JButton();
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel2.setText("Agregar Persona");
+
+        jLabel3.setText("Nombre:");
+
+        jLabel4.setText("Apellido:");
+
+        jLabel5.setText("Nacionalidad:");
+
+        jLabel6.setText("Edad:");
+
+        sp_edad.setModel(new javax.swing.SpinnerNumberModel(0, null, 130, 1));
+
+        jLabel7.setText("Género:");
+
+        buttonGroup1.add(rb_f);
+        rb_f.setText("F");
+
+        buttonGroup1.add(rb_m);
+        rb_m.setText("M");
+
+        jLabel8.setText("Vocación:");
+
+        jLabel9.setText("Título Unversitario:");
+
+        buttonGroup2.add(rb_si);
+        rb_si.setText("Si");
+
+        buttonGroup2.add(rb_no);
+        rb_no.setText("No");
+
+        jLabel10.setText("COVID-19:");
+
+        buttonGroup3.add(rb_positivo);
+        rb_positivo.setText("Positivo");
+
+        buttonGroup3.add(rb_negativo);
+        rb_negativo.setText("Negativo");
+
+        bt_agregarPer.setText("Agregar");
+
+        javax.swing.GroupLayout jd_aPersonaLayout = new javax.swing.GroupLayout(jd_aPersona.getContentPane());
+        jd_aPersona.getContentPane().setLayout(jd_aPersonaLayout);
+        jd_aPersonaLayout.setHorizontalGroup(
+            jd_aPersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_aPersonaLayout.createSequentialGroup()
+                .addGroup(jd_aPersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_aPersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jd_aPersonaLayout.createSequentialGroup()
+                            .addGap(186, 186, 186)
+                            .addComponent(jLabel2))
+                        .addGroup(jd_aPersonaLayout.createSequentialGroup()
+                            .addGap(161, 161, 161)
+                            .addGroup(jd_aPersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(jd_aPersonaLayout.createSequentialGroup()
+                                    .addComponent(jLabel4)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(tf_apellido))
+                                .addGroup(jd_aPersonaLayout.createSequentialGroup()
+                                    .addComponent(jLabel3)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(tf_nombrePe, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_aPersonaLayout.createSequentialGroup()
+                            .addContainerGap()
+                            .addGroup(jd_aPersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel6)
+                                .addComponent(jLabel5)
+                                .addGroup(jd_aPersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel7))
+                                .addComponent(jLabel9)
+                                .addComponent(jLabel10))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jd_aPersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(tf_nacionalidad)
+                                .addComponent(sp_edad, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jd_aPersonaLayout.createSequentialGroup()
+                                    .addComponent(rb_f)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(rb_m))
+                                .addComponent(tf_vocacion, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
+                                .addGroup(jd_aPersonaLayout.createSequentialGroup()
+                                    .addComponent(rb_si)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(rb_no))
+                                .addGroup(jd_aPersonaLayout.createSequentialGroup()
+                                    .addComponent(rb_positivo)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(rb_negativo)))))
+                    .addGroup(jd_aPersonaLayout.createSequentialGroup()
+                        .addGap(253, 253, 253)
+                        .addComponent(bt_agregarPer)))
+                .addContainerGap(196, Short.MAX_VALUE))
+        );
+        jd_aPersonaLayout.setVerticalGroup(
+            jd_aPersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_aPersonaLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(jLabel2)
+                .addGap(47, 47, 47)
+                .addGroup(jd_aPersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(tf_nombrePe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
+                .addGroup(jd_aPersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(tf_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jd_aPersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addComponent(tf_nacionalidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jd_aPersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(sp_edad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jd_aPersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(rb_f)
+                    .addComponent(rb_m))
+                .addGap(18, 18, 18)
+                .addGroup(jd_aPersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(tf_vocacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jd_aPersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(rb_si)
+                    .addComponent(rb_no))
+                .addGap(13, 13, 13)
+                .addGroup(jd_aPersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(rb_positivo)
+                    .addComponent(rb_negativo))
+                .addGap(26, 26, 26)
+                .addComponent(bt_agregarPer)
+                .addContainerGap(57, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jd_aPaisLayout = new javax.swing.GroupLayout(jd_aPais.getContentPane());
+        jd_aPais.getContentPane().setLayout(jd_aPaisLayout);
+        jd_aPaisLayout.setHorizontalGroup(
+            jd_aPaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jd_aPaisLayout.setVerticalGroup(
+            jd_aPaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setText("Menú");
+
+        bt_persona.setText("Agregar Persona");
+
+        bt_pais.setText("Agregar País");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(382, 382, 382)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(77, 77, 77)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(bt_persona, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
+                            .addComponent(bt_pais, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(414, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(jLabel1)
+                .addGap(25, 25, 25)
+                .addComponent(bt_persona, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(bt_pais, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(285, Short.MAX_VALUE))
         );
 
         pack();
@@ -79,5 +283,34 @@ public class MainLab extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bt_agregarPer;
+    private javax.swing.JButton bt_pais;
+    private javax.swing.JButton bt_persona;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.ButtonGroup buttonGroup3;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JDialog jd_aPais;
+    private javax.swing.JDialog jd_aPersona;
+    private javax.swing.JRadioButton rb_f;
+    private javax.swing.JRadioButton rb_m;
+    private javax.swing.JRadioButton rb_negativo;
+    private javax.swing.JRadioButton rb_no;
+    private javax.swing.JRadioButton rb_positivo;
+    private javax.swing.JRadioButton rb_si;
+    private javax.swing.JSpinner sp_edad;
+    private javax.swing.JTextField tf_apellido;
+    private javax.swing.JTextField tf_nacionalidad;
+    private javax.swing.JTextField tf_nombrePe;
+    private javax.swing.JTextField tf_vocacion;
     // End of variables declaration//GEN-END:variables
 }
