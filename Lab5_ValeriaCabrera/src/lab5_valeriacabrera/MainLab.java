@@ -7,6 +7,7 @@ package lab5_valeriacabrera;
 
 import java.awt.Color;
 import java.util.Date;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JColorChooser;
 
@@ -476,6 +477,11 @@ public class MainLab extends javax.swing.JFrame {
 
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Paises");
         jt_paises.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jt_paises.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jt_paisesMouseClicked(evt);
+            }
+        });
         jScrollPane4.setViewportView(jt_paises);
 
         treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Paises");
@@ -587,6 +593,8 @@ public class MainLab extends javax.swing.JFrame {
 
     private void bt_agregarPerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_agregarPerMouseClicked
        
+        Persona x;
+        
         if (rb_f.isSelected()) {
             
             String titulo,covid;
@@ -605,7 +613,9 @@ public class MainLab extends javax.swing.JFrame {
             DefaultListModel modelo
                     = (DefaultListModel) jl_mujeres.getModel(); //capturar el modelo (obligatorio
 
-            modelo.addElement(new Persona(tf_nacionalidad.getText(),tf_nombrePe.getText(),tf_apellido.getText(),(Integer)sp_edad.getValue(),"Mujer",tf_vocacion.getText(),titulo,covid));
+            x = new Persona(tf_nacionalidad.getText(),tf_nombrePe.getText(),tf_apellido.getText(),(Integer)sp_edad.getValue(),"Mujer",tf_vocacion.getText(),titulo,covid);
+            modelo.addElement(x);
+            
             
             jl_mujeres.setModel(modelo);   //setear el modelo que agregamos
             //resetear
@@ -637,9 +647,15 @@ public class MainLab extends javax.swing.JFrame {
             DefaultListModel modelo
                     = (DefaultListModel) jl_hombres.getModel(); //capturar el modelo (obligatorio
 
-            modelo.addElement(new Persona(tf_nacionalidad.getText(),tf_nombrePe.getText(),tf_apellido.getText(),(Integer)sp_edad.getValue(),"Hombre",tf_vocacion.getText(),titulo,covid));
+             x = new Persona(tf_nacionalidad.getText(),tf_nombrePe.getText(),tf_apellido.getText(),(Integer)sp_edad.getValue(),"Hombre",tf_vocacion.getText(),titulo,covid);
+            modelo.addElement(x);
             
             jl_hombres.setModel(modelo);   //setear el modelo que agregamos
+            
+            DefaultComboBoxModel dc = (DefaultComboBoxModel) cb_personas.getModel();
+            dc.addElement(x);
+            cb_personas.setModel(dc);
+            
             //resetear
             tf_nacionalidad.setText("");
             tf_nombrePe.setText("");
@@ -654,20 +670,31 @@ public class MainLab extends javax.swing.JFrame {
             
         }
         
+        
+        
        
         
     }//GEN-LAST:event_bt_agregarPerMouseClicked
 
     private void bt_aPaisMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_aPaisMouseClicked
         
+        Pais y;
+        
         DefaultListModel modelo
                 = (DefaultListModel) jl_paises.getModel(); //capturar el modelo (obligatorio
         
         
 
-        modelo.addElement(new Pais(tf_nombrePa.getText(),jdc_fundacion.getDate(),tf_himno.getText(),color));
+        y = new Pais(tf_nombrePa.getText(),jdc_fundacion.getDate(),tf_himno.getText(),color);
+        modelo.addElement(y);
 
         jl_paises.setModel(modelo);   //setear el modelo que agregamos
+        
+        DefaultComboBoxModel dc = (DefaultComboBoxModel) cb_pais.getModel();
+            dc.addElement(y);
+            cb_pais.setModel(dc);
+            
+            
         //resetear
         tf_nombrePa.setText("");
         jdc_fundacion.setDate(new Date());
@@ -709,6 +736,15 @@ public class MainLab extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_bt_colorMouseClicked
+
+    private void jt_paisesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jt_paisesMouseClicked
+        
+        if (evt.isMetaDown()) {
+            
+        }
+        
+        
+    }//GEN-LAST:event_jt_paisesMouseClicked
 
     /**
      * @param args the command line arguments
