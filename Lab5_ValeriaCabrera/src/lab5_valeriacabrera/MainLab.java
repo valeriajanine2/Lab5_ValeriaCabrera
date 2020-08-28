@@ -16,6 +16,8 @@ public class MainLab extends javax.swing.JFrame {
      */
     public MainLab() {
         initComponents();
+        this.setExtendedState(MAXIMIZED_BOTH);
+        
     }
 
     /**
@@ -58,11 +60,27 @@ public class MainLab extends javax.swing.JFrame {
         jLabel20 = new javax.swing.JLabel();
         tf_himno = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        bt_color = new javax.swing.JButton();
+        bt_aPais = new javax.swing.JButton();
         buttonGroup1 = new javax.swing.ButtonGroup();
         buttonGroup2 = new javax.swing.ButtonGroup();
         buttonGroup3 = new javax.swing.ButtonGroup();
+        jDialog1 = new javax.swing.JDialog();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        cb_personas = new javax.swing.JComboBox<>();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        cb_pais = new javax.swing.JComboBox<>();
+        bt_add = new javax.swing.JButton();
+        pum1_pais = new javax.swing.JPopupMenu();
+        jmi1_eliminar = new javax.swing.JMenuItem();
+        jmi1_modificar = new javax.swing.JMenuItem();
+        jmi1_agregarH = new javax.swing.JMenuItem();
+        pum1_persona = new javax.swing.JPopupMenu();
+        jmi1_eliminarP = new javax.swing.JMenuItem();
+        jmi1_modificarP = new javax.swing.JMenuItem();
+        jmi1_expulsar = new javax.swing.JMenuItem();
         jLabel1 = new javax.swing.JLabel();
         bt_persona = new javax.swing.JButton();
         bt_pais = new javax.swing.JButton();
@@ -83,6 +101,8 @@ public class MainLab extends javax.swing.JFrame {
         jScrollPane5 = new javax.swing.JScrollPane();
         jt_covid = new javax.swing.JTree();
         jButton1 = new javax.swing.JButton();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel2.setText("Agregar Persona");
@@ -95,7 +115,7 @@ public class MainLab extends javax.swing.JFrame {
 
         jLabel6.setText("Edad:");
 
-        sp_edad.setModel(new javax.swing.SpinnerNumberModel(0, null, 130, 1));
+        sp_edad.setModel(new javax.swing.SpinnerNumberModel(0, 0, 130, 1));
 
         jLabel7.setText("Género:");
 
@@ -239,7 +259,12 @@ public class MainLab extends javax.swing.JFrame {
 
         jLabel21.setText("Color de la Bandera:");
 
-        jButton3.setText("Agregar");
+        bt_aPais.setText("Agregar");
+        bt_aPais.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_aPaisMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jd_aPaisLayout = new javax.swing.GroupLayout(jd_aPais.getContentPane());
         jd_aPais.getContentPane().setLayout(jd_aPaisLayout);
@@ -249,7 +274,7 @@ public class MainLab extends javax.swing.JFrame {
                 .addGroup(jd_aPaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jd_aPaisLayout.createSequentialGroup()
                         .addGap(229, 229, 229)
-                        .addComponent(jButton3))
+                        .addComponent(bt_aPais))
                     .addGroup(jd_aPaisLayout.createSequentialGroup()
                         .addGap(94, 94, 94)
                         .addGroup(jd_aPaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -264,7 +289,7 @@ public class MainLab extends javax.swing.JFrame {
                                 .addComponent(tf_nombrePa)
                                 .addComponent(jdc_fundacion, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
                                 .addComponent(tf_himno)
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(bt_color, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(127, Short.MAX_VALUE))
         );
         jd_aPaisLayout.setVerticalGroup(
@@ -287,11 +312,90 @@ public class MainLab extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jd_aPaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel21)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(bt_color, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(56, 56, 56)
-                .addComponent(jButton3)
+                .addComponent(bt_aPais)
                 .addContainerGap(179, Short.MAX_VALUE))
         );
+
+        jLabel22.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel22.setText("Agregar a un País");
+
+        jLabel23.setText("Persona:");
+
+        jLabel24.setText("vive en");
+
+        jLabel25.setText("País:");
+
+        bt_add.setText("Agregar");
+        bt_add.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_addMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
+        jDialog1.getContentPane().setLayout(jDialog1Layout);
+        jDialog1Layout.setHorizontalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDialog1Layout.createSequentialGroup()
+                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jDialog1Layout.createSequentialGroup()
+                        .addGap(169, 169, 169)
+                        .addComponent(jLabel24))
+                    .addGroup(jDialog1Layout.createSequentialGroup()
+                        .addGap(155, 155, 155)
+                        .addComponent(bt_add))
+                    .addGroup(jDialog1Layout.createSequentialGroup()
+                        .addGap(46, 46, 46)
+                        .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel25)
+                            .addComponent(jLabel23))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel22)
+                            .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(cb_personas, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(cb_pais, 0, 189, Short.MAX_VALUE)))))
+                .addContainerGap(93, Short.MAX_VALUE))
+        );
+        jDialog1Layout.setVerticalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDialog1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel22)
+                .addGap(45, 45, 45)
+                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel23)
+                    .addComponent(cb_personas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel25)
+                    .addComponent(cb_pais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(46, 46, 46)
+                .addComponent(bt_add)
+                .addContainerGap(65, Short.MAX_VALUE))
+        );
+
+        jmi1_eliminar.setText("jMenuItem1");
+        pum1_pais.add(jmi1_eliminar);
+
+        jmi1_modificar.setText("jMenuItem2");
+        pum1_pais.add(jmi1_modificar);
+
+        jmi1_agregarH.setText("jMenuItem3");
+        pum1_pais.add(jmi1_agregarH);
+
+        jmi1_eliminarP.setText("jMenuItem1");
+        pum1_persona.add(jmi1_eliminarP);
+
+        jmi1_modificarP.setText("jMenuItem2");
+        pum1_persona.add(jmi1_modificarP);
+
+        jmi1_expulsar.setText("jMenuItem3");
+        pum1_persona.add(jmi1_expulsar);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -299,8 +403,18 @@ public class MainLab extends javax.swing.JFrame {
         jLabel1.setText("Menú");
 
         bt_persona.setText("Agregar Persona");
+        bt_persona.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_personaMouseClicked(evt);
+            }
+        });
 
         bt_pais.setText("Agregar País");
+        bt_pais.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_paisMouseClicked(evt);
+            }
+        });
 
         jLabel11.setText("Opciones");
 
@@ -316,19 +430,23 @@ public class MainLab extends javax.swing.JFrame {
 
         jLabel14.setText("Mujeres");
 
-        jLabel15.setText("Países");
+        jLabel15.setText("Paises");
 
         jLabel16.setText("Árboles");
 
-        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Países");
+        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Paises");
         jt_paises.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
         jScrollPane4.setViewportView(jt_paises);
 
-        treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Coronavirus");
+        treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Paises");
         jt_covid.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
         jScrollPane5.setViewportView(jt_covid);
 
         jButton1.setText("----->");
+
+        jLabel26.setText("Contagiados de COVID-19");
+
+        jLabel27.setText("Personas de Cada País");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -380,6 +498,12 @@ public class MainLab extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(25, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel27)
+                .addGap(205, 205, 205)
+                .addComponent(jLabel26)
+                .addGap(113, 113, 113))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -414,7 +538,11 @@ public class MainLab extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(51, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel26)
+                            .addComponent(jLabel27))
+                        .addContainerGap(19, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton1)
@@ -429,6 +557,32 @@ public class MainLab extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_bt_agregarPerMouseClicked
+
+    private void bt_aPaisMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_aPaisMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bt_aPaisMouseClicked
+
+    private void bt_addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_addMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bt_addMouseClicked
+
+    private void bt_personaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_personaMouseClicked
+        
+        //agregar persona del main que abre el dialog
+        
+        jd_aPersona.setModal(true); //no poder tocar a principal
+        jd_aPersona.pack();//tamaño se acople a los controles preestablecidos
+        jd_aPersona.setLocationRelativeTo(this);//centro de la principal
+        jd_aPersona.setVisible(true);
+        
+    }//GEN-LAST:event_bt_personaMouseClicked
+
+    private void bt_paisMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_paisMouseClicked
+        jd_aPais.setModal(true); //no poder tocar a principal
+        jd_aPais.pack();//tamaño se acople a los controles preestablecidos
+        jd_aPais.setLocationRelativeTo(this);//centro de la principal
+        jd_aPais.setVisible(true);
+    }//GEN-LAST:event_bt_paisMouseClicked
 
     /**
      * @param args the command line arguments
@@ -466,15 +620,19 @@ public class MainLab extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bt_aPais;
+    private javax.swing.JButton bt_add;
     private javax.swing.JButton bt_agregarPer;
+    private javax.swing.JButton bt_color;
     private javax.swing.JButton bt_pais;
     private javax.swing.JButton bt_persona;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;
+    private javax.swing.JComboBox<String> cb_pais;
+    private javax.swing.JComboBox<String> cb_personas;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -489,6 +647,12 @@ public class MainLab extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -507,8 +671,16 @@ public class MainLab extends javax.swing.JFrame {
     private javax.swing.JList<String> jl_hombres;
     private javax.swing.JList<String> jl_mujeres;
     private javax.swing.JList<String> jl_paises;
+    private javax.swing.JMenuItem jmi1_agregarH;
+    private javax.swing.JMenuItem jmi1_eliminar;
+    private javax.swing.JMenuItem jmi1_eliminarP;
+    private javax.swing.JMenuItem jmi1_expulsar;
+    private javax.swing.JMenuItem jmi1_modificar;
+    private javax.swing.JMenuItem jmi1_modificarP;
     private javax.swing.JTree jt_covid;
     private javax.swing.JTree jt_paises;
+    private javax.swing.JPopupMenu pum1_pais;
+    private javax.swing.JPopupMenu pum1_persona;
     private javax.swing.JRadioButton rb_f;
     private javax.swing.JRadioButton rb_m;
     private javax.swing.JRadioButton rb_negativo;
