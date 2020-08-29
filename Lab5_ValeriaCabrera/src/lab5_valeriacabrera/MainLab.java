@@ -569,9 +569,19 @@ public class MainLab extends javax.swing.JFrame {
 
         treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Paises");
         jt_covid.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jt_covid.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jt_covidMouseClicked(evt);
+            }
+        });
         jScrollPane5.setViewportView(jt_covid);
 
         jButton1.setText(">>>>>");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
 
         jLabel26.setText("Contagiados de COVID-19");
 
@@ -816,6 +826,7 @@ public class MainLab extends javax.swing.JFrame {
         DefaultMutableTreeNode nodo_pais;    //crear un nodo
         nodo_pais= new DefaultMutableTreeNode((Pais) cb_pais.getSelectedItem()); //setear un elemento al nodo
         
+        DefaultMutableTreeNode nodo_mujer;
         nodo_mujer = new DefaultMutableTreeNode("Mujer");
         DefaultMutableTreeNode nodo_hombre;
         nodo_hombre = new DefaultMutableTreeNode("Hombre");
@@ -932,27 +943,27 @@ public class MainLab extends javax.swing.JFrame {
         DefaultTreeModel m = (DefaultTreeModel) jt_paises.getModel(); //atrapar el modelo
         DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) m.getRoot();
         DefaultMutableTreeNode nodo;    //crear un nodo
-        nodo= new DefaultMutableTreeNode((Persona) cb_personas.getSelectedItem()); //setear un elemento al nodo
+        nodo= new DefaultMutableTreeNode((Persona) cb_habitante.getSelectedItem()); //setear un elemento al nodo
+
         
         Persona per = (Persona)cb_habitante.getSelectedItem();
-        String nom = per.getGenero();
+        String gen = per.getGenero();
+        
+        //index
+        int index = nodo_seleccionado.getParent().getIndex(nodo_seleccionado);
         
         
-        
-        //index del pais
-        //int index = raiz.getIndex(pais);
-        
-        if (nom.equals("Mujer")) {
-            
-            DefaultMutableTreeNode fem = (DefaultMutableTreeNode) raiz.getChildAt(0).getChildAt(0);
+        if (gen.equals("Mujer")) {
+            DefaultMutableTreeNode fem = (DefaultMutableTreeNode) raiz.getChildAt(index).getChildAt(0);
             fem.add(nodo);
             
         }else{
-           DefaultMutableTreeNode man = (DefaultMutableTreeNode) raiz.getChildAt(0).getChildAt(1);
+           DefaultMutableTreeNode man = (DefaultMutableTreeNode) raiz.getChildAt(index).getChildAt(1);
             man.add(nodo);
         }
         
         m.reload();
+        
         
         jd_habitante.setVisible(false);
         
@@ -1010,6 +1021,64 @@ public class MainLab extends javax.swing.JFrame {
         m.reload();
         
     }//GEN-LAST:event_jmi1_modificarPActionPerformed
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        
+        
+         //verificar si tiene una persona seleccionada
+        //if (nodo_seleccionado.getUserObject() instanceof Pais) { //que haya un pais selecionada
+            DefaultTreeModel modeloARBOL
+                    = (DefaultTreeModel) jt_paises.getModel(); //capturar modelo
+            DefaultMutableTreeNode raiz
+                    = (DefaultMutableTreeNode) modeloARBOL.getRoot(); //capturar raiz
+            
+            
+            DefaultTreeModel modelo2
+                    = (DefaultTreeModel) jt_covid.getModel(); //capturar modelo
+            DefaultMutableTreeNode raiz2
+                    = (DefaultMutableTreeNode) modelo2.getRoot(); //capturar raiz
+            
+            
+            //index
+            int index = nodo_seleccionado.getParent().getIndex(nodo_seleccionado);
+            
+            DefaultMutableTreeNode nodo = (DefaultMutableTreeNode) raiz.getChildAt(index);
+            
+            modeloARBOL.removeNodeFromParent(nodo);
+            
+            raiz2.add(nodo);
+        
+            
+            
+            modeloARBOL.reload();
+            modelo2.reload();
+            
+        //}   
+        
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jt_covidMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jt_covidMouseClicked
+        if (evt.isMetaDown()) {
+            //seleccionar un nodo con click derecho
+            int row = jt_covid.getClosestRowForLocation( //seleccionar el elemento más cercano
+                    evt.getX(), evt.getY());
+            jt_covid.setSelectionRow(row);
+            Object v1 = jt_covid.getSelectionPath().getLastPathComponent(); //objeto del nodo seleccionado
+            nodo_seleccionado = (DefaultMutableTreeNode) v1; //convertir a nodo
+            
+            
+            if (nodo_seleccionado.getUserObject() instanceof Pais) { //si ese nodo es un pais entonces...
+                pais_seleccionado = (Pais) nodo_seleccionado.getUserObject();
+                pum1_pais.show(evt.getComponent(), //aparece el menu solo si se cumple la condición
+                        evt.getX(), evt.getY());
+            }else if(nodo_seleccionado.getUserObject() instanceof Persona){
+                persona_seleccionada = (Persona) nodo_seleccionado.getUserObject();
+                pum1_persona.show(evt.getComponent(), //aparece el menu solo si se cumple la condición
+                evt.getX(), evt.getY());
+            }
+
+        }
+    }//GEN-LAST:event_jt_covidMouseClicked
 
     /**
      * @param args the command line arguments
@@ -1141,5 +1210,5 @@ public class MainLab extends javax.swing.JFrame {
     DefaultMutableTreeNode nodo_seleccionado;
     Pais pais_seleccionado;
     Persona persona_seleccionada;
-    DefaultMutableTreeNode nodo_mujer;
+    //DefaultMutableTreeNode nodo_mujer;
 }

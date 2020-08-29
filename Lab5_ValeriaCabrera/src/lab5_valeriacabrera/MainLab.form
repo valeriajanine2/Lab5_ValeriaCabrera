@@ -954,6 +954,9 @@
               <TreeModel code="Paises&#xa;"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jt_covidMouseClicked"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -961,6 +964,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="&gt;&gt;&gt;&gt;&gt;"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton1MouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel26">
       <Properties>
